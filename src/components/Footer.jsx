@@ -54,6 +54,7 @@ const Right = styled.div`
 
 `
 
+
 const Footer = () => {
   return (
     <Container>
