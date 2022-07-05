@@ -6,11 +6,11 @@ import ReactGA from 'react-ga';
 
 
 
-const Match=React.lazy(() => import('./pages/match'));
+const Match=React.lazy(() => import('./pages/Match/match'));
 const Layout=React.lazy(() => import('./components/Layout'));
-const Advertiser=React.lazy(() => import('./pages/advertiser'));
-const Home=React.lazy(() => import('./pages/home'));
-const DMCA=React.lazy(() => import('./pages/dmca'));
+const Advertiser=React.lazy(() => import('./pages/Advertiser/advertiser'));
+const Home=React.lazy(() => import('./pages/Home/home'));
+const DMCA=React.lazy(() => import('./pages/Dmca/dmca'));
 
 function App() {
   useEffect(()=>{
