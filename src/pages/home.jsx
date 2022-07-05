@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import MatchContainer from '../components/MatchContainer'
+import { useMobileMediaQuery } from '../utils'
 
 
 const Container = styled.div`
@@ -27,12 +28,11 @@ const TodayMatch =styled.div`
 `
 
 const TextWrapper =styled.div`
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-
-        background-color: #ccc;
-        font-family: Arial;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ccc;
+    font-family: Arial;
     font-size: 18px;
     font-weight: bold;
     color: #333;
@@ -59,6 +59,8 @@ const Home = () => {
         const [TodMatch,setTodMatch]=useState([]);
         const [YestMatch,setYestMatch]=useState([]);
 
+    const isMobile=useMobileMediaQuery();
+    console.log('isMobile',isMobile);
         useEffect(()=>{
             const sendRequest = async ()=>{
                 try{
@@ -74,8 +76,7 @@ const Home = () => {
                     
                       loadedItems.push({id:keyItem,details:data[keyItem]})
                   }
-                    console.log("GGGGGGGGGGGG");
-                    console.log(loadedItems);
+                 
                     setData(loadedItems);
                     setTodMatch(loadedItems.filter((item)=>item.details.State!==-1));
                     setYestMatch(loadedItems.filter((item)=>item.details.State===-1));

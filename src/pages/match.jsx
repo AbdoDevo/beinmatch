@@ -148,9 +148,6 @@ const Match = () => {
               }
     
               const data= await response.json();
-        
- 
-                console.log(data);
              setMAtch(data);
                 
             }  catch(e){
