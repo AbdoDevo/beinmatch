@@ -110,8 +110,10 @@ export const TimingOrScore=styled.div`
       
 `
 export const IframeContainer=styled.div`
-  width: 100%;
-    height: 500px;
+    width: 1000px;
+    padding-right: 20px;
+    overflow:hidden;
+
 `
 
 export const RedTextContainer=styled.div`

@@ -1,7 +1,8 @@
-import { fetchMatch } from "api/apis";
+import { fetchMatch, getMatchPage } from "api/apis";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import {
   Container,
   TodayMatch,
@@ -24,6 +25,7 @@ const Match = () => {
 
   useEffect(() => {
     const sendrequest = async () => {
+
       const match = await fetchMatch(idMatch);
       setMAtch(match);
     };
@@ -33,6 +35,17 @@ const Match = () => {
   if (!match) {
     return <Container>No Match Founded!</Container>;
   }
+
+   
+const Iframe=styled.iframe`
+    padding-right: 20px;
+  z-index:0 ;
+  margin-top: -220px;
+
+`
+
+
+
   return (
     <Container>
       <TodayMatch>
@@ -58,18 +71,27 @@ const Match = () => {
           </Team>
         </MatchCard>
         <IframeContainer>
-          <iframe
+          <div id="PlaceToPutTable"></div>
+{/* <iframe             allowfullscreen="true"  height="500px"
+            scrolling=""
+                        width="100%"
+
+ id="iframe" src="https://beinmatch.ma/home/live/11785/1/برشلونة_vs_فياريال" style="display:hidden;"></iframe> */}
+          <Iframe
+            height="800px"
+            id="iframe"
             allowfullscreen="true"
             frameborder="0"
-            height="500px"
             scrolling=""
-            src={match.Link}
+            // src={match.Link}
             width="100%"
-          ></iframe>
+            src={'https://beinmatch.ma/home/live/11806/1/ريال_بيتيس_vs_أتلتيكو_مدريد'}
+            scrolling="no"
+          ></Iframe>
         </IframeContainer>
       </Wrapper>
 
-      <RedTextContainer>
+      {/* <RedTextContainer>
         Disclaimer: This content is provided and hosted by Another Website. Be
         in Match is not responsible for and cannot be accountable for any of the
         content hosted on the third-party site. For any legal complaints please
@@ -77,7 +99,7 @@ const Match = () => {
       </RedTextContainer>
       <RedTextContainer>
         <Link to={`/`}>في حالة توقف البث إضغط هنا لتحديث المشغل</Link>
-      </RedTextContainer>
+      </RedTextContainer> */}
     </Container>
   );
 };

@@ -125,7 +125,7 @@ const MatchContainer = (props) => {
 
                 <ButtonContaier>
                 {props.ScoreTeam2!==-1 && <Score>{props.ScoreTeam2}</Score>}
-               <Link to={`/home/live/${props.id}`}> <Button>{props.State===-1 ? "شاهد الأهداف" : "شاهد المباراة"} </Button></Link>
+               <Link to={`/home/live/${props.id}`}> <Button>{props.ScoreTeam1!==-1 ? "شاهد الأهداف" : "شاهد المباراة"} </Button></Link>
                 {props.ScoreTeam1!==-1 && <Score>{props.ScoreTeam1}</Score>}
                 </ButtonContaier>
                 <Team >
