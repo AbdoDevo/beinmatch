@@ -6,7 +6,7 @@ import { mobile } from '../Reponsitivity'
 
 const Container = styled.div`
     width: 100%;
-    height: 20vh;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -17,8 +17,22 @@ const Container = styled.div`
     ${mobile({width : "100%"})};
 `
 
+const TopContainer = styled.div`
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+`
 const Logo = styled.img`
   cursor: pointer;
+`
+
+
+const AdsContainer = styled.div`
+  width: 720px;
+  height: 90px;
+
 `
 
 const TestWrapper = styled.div`
@@ -83,7 +97,13 @@ const ListItem=styled.div`
 const Header = () => {
   return (
     <Container>
-         <Link to="/">   <Logo src={logoimage}/></Link>
+      <TopContainer>
+        <AdsContainer>
+        <script data-cfasync='false' type='text/javascript' src='//p440142.clksite.com/adServe/banners?tid=440142_862237_2'></script>
+        </AdsContainer>
+        <Link to="/">   <Logo src={logoimage}/></Link>
+        </TopContainer>
+
         <NavBar>
         <Link to="/">
             <ListItem>

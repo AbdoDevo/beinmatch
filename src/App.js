@@ -1,17 +1,24 @@
-import React,{Suspense} from 'react'
+import React,{Suspense,useEffect} from 'react'
 
 import {Route,Switch} from 'react-router-dom'
+import ReactGA from 'react-ga';
 
 
 
 
-const Match=React.lazy(() => import('./pages/match'));
+const Match=React.lazy(() => import('./pages/Match/match'));
 const Layout=React.lazy(() => import('./components/Layout'));
-const Advertiser=React.lazy(() => import('./pages/advertiser'));
-const Home=React.lazy(() => import('./pages/home'));
-const DMCA=React.lazy(() => import('./pages/dmca'));
+const Advertiser=React.lazy(() => import('./pages/Advertiser/advertiser'));
+const Home=React.lazy(() => import('./pages/Home/home'));
+const DMCA=React.lazy(() => import('./pages/Dmca/dmca'));
 
 function App() {
+  useEffect(()=>{
+    ReactGA.initialize('G-FYJ97ZGZTF');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
+  },[])
+ 
   return (
     <Suspense fallback={<div>Loading...</div>}>
      <Layout>
